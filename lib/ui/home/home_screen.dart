@@ -17,6 +17,8 @@ class HomeScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
 
             children: <Widget>[
+              const Spacer(flex: 2), // Espaçamento
+
               Text(
                 'PUXA-CONVERSA',
                 style: TextStyle(fontSize: 42, fontFamily: 'Tendang'),
@@ -24,11 +26,11 @@ class HomeScreen extends StatelessWidget {
                 textScaler: TextScaler.noScaling,
               ),
 
-              const SizedBox(height: 60), // Espaçamento
+              const Spacer(flex: 1), // Espaçamento
 
               Image.asset(
                 'assets/images/app-logo.png',
-                height: 140
+                height: 140,
               ),
 
               Text.rich(
@@ -69,13 +71,13 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
           
-              const SizedBox(height:100), // Espaçamento
+              const Spacer(flex: 1), // Espaçamento
 
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Theme.of(context).colorScheme.primary,
                   foregroundColor: Theme.of(context).colorScheme.onPrimary,
-                  padding: EdgeInsets.symmetric(vertical: 16),
+                  padding: EdgeInsets.symmetric(vertical: 14),
                 ),
                 onPressed: () {
                   Navigator.push(
@@ -90,7 +92,7 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
 
-              const SizedBox(height: 12), // Espaçamento
+              const SizedBox(height: 12), // Espaçamento fixo
 
               TextButton(
                 style: TextButton.styleFrom(
@@ -108,6 +110,8 @@ class HomeScreen extends StatelessWidget {
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
               ),
+
+              const Spacer(flex: 2), // Espaçamento
             ],
           ),
         )

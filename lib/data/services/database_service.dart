@@ -76,16 +76,16 @@ class DatabaseService {
     ];
   }
 
-// Retorna uma lista de perguntas de dadas categorias
-  Future<List<Question>> getQuestions(List<int> categoriesIds) async {
+  // Retorna uma lista de perguntas de dadas categorias
+  Future<List<Question>> getQuestions(List<int> categoryIds) async {
     final db = await database;
     // Constrói uma string com o número de parâmetros a serem informados (?) na query
-    String catParameters = List.filled(categoriesIds.length, '?').join(',');
+    String catParameters = List.filled(categoryIds.length, '?').join(',');
     // SELECT * FROM question WHERE category IN (?,?,...), onde cada ? será substituído por um id
     final List<Map<String, Object?>> questionMaps = await db.query(
       'question',
       where: 'category IN ($catParameters)',
-      whereArgs: categoriesIds
+      whereArgs: categoryIds
     );
 
     return [

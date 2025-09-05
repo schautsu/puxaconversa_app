@@ -37,7 +37,7 @@ class CategorySelectionScreen extends StatelessWidget {
                 style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
               ),
-
+              
               const SizedBox(height: 20), // Espaçamento
 
               _buildMainOptions(context, viewModel),
@@ -58,7 +58,7 @@ class CategorySelectionScreen extends StatelessWidget {
                   foregroundColor: Theme.of(context).colorScheme.onPrimary,
                   disabledBackgroundColor: Colors.grey.shade300,
                   disabledForegroundColor: Colors.grey.shade500,
-                  padding: EdgeInsets.symmetric(vertical: 16),
+                  padding: EdgeInsets.symmetric(vertical: 14),
                 ),
                 // Só começa o jogo quando o botão está ativo (categorias selecionadas)
                 onPressed: viewModel.isStartButtonDisabled ?

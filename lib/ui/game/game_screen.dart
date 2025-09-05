@@ -59,6 +59,9 @@ class GameScreen extends StatelessWidget {
               ),
               textAlign: TextAlign.center,
             ),
+            style: TextButton.styleFrom(
+              disabledForegroundColor: Colors.grey.shade500,
+            ),
             onPressed: viewModel.isPreviousButtonDisabled ?
             null : () => viewModel.unswipeCard(),
           ),
