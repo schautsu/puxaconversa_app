@@ -1,0 +1,44 @@
+name: puxaconversa_app
+description: "Um aplicativo de perguntas para iniciar conversas."
+publish_to: 'none' 
+version: 0.1.0
+
+environment:
+  sdk: ^3.8.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # Para o banco de dados local
+  sqflite: ^2.4.2
+  path: ^1.9.1
+  
+  # Para o efeito de baralho de cartas
+  appinio_swiper: ^2.1.1
+  
+  # Para o gerenciamento de estado (MVVM)
+  provider: ^6.1.5+1
+
+  fading_edge_scrollview: ^4.1.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+  fonts:
+    - family: Geomatrix
+      fonts:
+        - asset: fonts/Geomatrix.otf
+    - family: Gnuolane
+      fonts:
+        - asset: fonts/Gnuolane.otf
+    - family: Tendang
+      fonts:
+        - asset: fonts/Tendang.otf
