@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:fading_edge_scrollview/fading_edge_scrollview.dart';
 
 class InstructionsScreen extends StatelessWidget {
@@ -14,7 +15,7 @@ class InstructionsScreen extends StatelessWidget {
           child: Column(
             children: <Widget>[
               // Título da página
-              Text(
+              AutoSizeText(
                 'Instruções',
                 style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
@@ -45,7 +46,7 @@ class InstructionsScreen extends StatelessWidget {
           child: Column(
             children: <Widget>[
               // Parágrafo introdutório
-              Text.rich(
+              AutoSizeText.rich(
                 style: TextStyle(fontSize: 18),
                 textAlign: TextAlign.justify,
 
@@ -65,7 +66,7 @@ class InstructionsScreen extends StatelessWidget {
               ),
 
               // Seção de orientações
-              Text(
+              AutoSizeText(
                 'Como jogar\n',
                 style: TextStyle(
                   fontSize: 20,
@@ -75,7 +76,7 @@ class InstructionsScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
 
-              Text.rich(
+              AutoSizeText.rich(
                 style: TextStyle(fontSize: 18),
                 textAlign: TextAlign.justify,
 

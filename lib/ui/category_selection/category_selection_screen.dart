@@ -1,6 +1,6 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:fading_edge_scrollview/fading_edge_scrollview.dart';
 import 'package:puxaconversa_app/ui/game/game_screen.dart';
 import 'category_selection_viewmodel.dart';

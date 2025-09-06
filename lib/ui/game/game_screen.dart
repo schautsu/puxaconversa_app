@@ -1,6 +1,6 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:appinio_swiper/appinio_swiper.dart';
 import 'package:puxaconversa_app/data/models/question_model.dart';
 import 'game_viewmodel.dart';
