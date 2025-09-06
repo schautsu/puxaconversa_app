@@ -22,16 +22,14 @@ class InstructionsScreen extends StatelessWidget {
 
               SizedBox(height: 20),
 
-              Expanded(
-                child: _buildMainContent(context),
-              ),
+              Expanded(child: _buildMainContent(context)),
             ],
           ),
         ),
       ),
     );
   }
-  
+
   Widget _buildMainContent(BuildContext context) {
     final scrollController = ScrollController();
 
@@ -54,7 +52,8 @@ class InstructionsScreen extends StatelessWidget {
                 TextSpan(
                   children: <TextSpan>[
                     TextSpan(
-                      text: 'O Puxa-Conversa é um jogo diferente e sem regras, com perguntas abertas que visam estimular boas conversas em torno do tema: ',
+                      text:
+                          'O Puxa-Conversa é um jogo diferente e sem regras, com perguntas abertas que visam estimular boas conversas em torno do tema: ',
                     ),
                     TextSpan(
                       text: 'envelhecimento humano e qualidade de vida',
@@ -89,16 +88,12 @@ class InstructionsScreen extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    TextSpan(
-                      text: 'No menu principal, clique em '
-                    ),
+                    TextSpan(text: 'No menu principal, clique em '),
                     TextSpan(
                       text: 'Jogar',
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
-                    TextSpan(
-                      text: '.\n\n'
-                    ),
+                    TextSpan(text: '.\n\n'),
 
                     TextSpan(
                       text: '2. ',
@@ -108,7 +103,8 @@ class InstructionsScreen extends StatelessWidget {
                       ),
                     ),
                     TextSpan(
-                      text: 'Selecione as categorias de perguntas sobre as quais quer conversar e clique em ',
+                      text:
+                          'Selecione as categorias de perguntas sobre as quais quer conversar e clique em ',
                     ),
                     TextSpan(
                       text: 'Começar',
@@ -124,10 +120,12 @@ class InstructionsScreen extends StatelessWidget {
                       ),
                     ),
                     TextSpan(
-                      text: 'Pense nas perguntas como uma pilha de cartas: ao arrastar uma carta, outra pergunta aparece!\n',
+                      text:
+                          'Pense nas perguntas como uma pilha de cartas: ao arrastar uma carta, outra pergunta aparece!\n',
                     ),
                     TextSpan(
-                      text: 'Você também pode voltar para perguntas anteriores ou encerrar o jogo a qualquer momento.\n',
+                      text:
+                          'Você também pode voltar para perguntas anteriores ou encerrar o jogo a qualquer momento.\n',
                       style: TextStyle(
                         fontSize: 16,
                         fontStyle: FontStyle.italic,

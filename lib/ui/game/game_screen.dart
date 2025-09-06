@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:appinio_swiper/appinio_swiper.dart';
@@ -50,7 +51,7 @@ class GameScreen extends StatelessWidget {
         Flexible(
           child: TextButton.icon(
             icon: Icon(Icons.undo),
-            label: Text(
+            label: AutoSizeText(
               'Pergunta anterior',
               style: TextStyle(
                 fontSize: 14,
@@ -58,18 +59,20 @@ class GameScreen extends StatelessWidget {
                 height: 1.2,
               ),
               textAlign: TextAlign.center,
+              maxLines: 2,
             ),
             style: TextButton.styleFrom(
               disabledForegroundColor: Colors.grey.shade500,
             ),
-            onPressed: viewModel.isPreviousButtonDisabled ?
-            null : () => viewModel.unswipeCard(),
+            onPressed: viewModel.isPreviousButtonDisabled
+                ? null
+                : () => viewModel.unswipeCard(),
           ),
         ),
         Flexible(
           child: TextButton.icon(
             icon: Icon(Icons.exit_to_app),
-            label: Text(
+            label: AutoSizeText(
               'Encerrar jogo',
               style: TextStyle(
                 fontSize: 14,
@@ -78,10 +81,9 @@ class GameScreen extends StatelessWidget {
                 color: Colors.red.shade800,
               ),
               textAlign: TextAlign.center,
+              maxLines: 2,
             ),
-            style: TextButton.styleFrom(
-              iconColor: Colors.red.shade800,
-            ),
+            style: TextButton.styleFrom(iconColor: Colors.red.shade800),
             onPressed: () => Navigator.of(context).pop(),
           ),
         ),
@@ -119,10 +121,10 @@ class GameScreen extends StatelessWidget {
 
         // Mensagem de fim
         if (viewModel.isFinished)
-          Text(
+          AutoSizeText(
             'Fim das cartas!',
             style: TextStyle(
-              fontSize: 22,
+              fontSize: 20,
               fontWeight: FontWeight.bold,
               color: Colors.grey,
             ),
@@ -171,7 +173,7 @@ class QuestionCard extends StatelessWidget {
           children: <Widget>[
             Expanded(
               child: Center(
-                child: Text(
+                child: AutoSizeText(
                   question.content,
                   style: TextStyle(fontSize: 20, height: 1.3),
                   textAlign: TextAlign.center,
@@ -180,13 +182,10 @@ class QuestionCard extends StatelessWidget {
               ),
             ),
 
-            Text(
+            AutoSizeText(
               '$cardIndex/$totalCards',
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.grey,
-              ),
-              textScaler: TextScaler.noScaling,
+              style: TextStyle(fontSize: 18, color: Colors.grey),
+              textScaleFactor: 1.0,
             ),
           ],
         ),

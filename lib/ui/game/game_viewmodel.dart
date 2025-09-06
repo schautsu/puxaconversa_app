@@ -39,7 +39,11 @@ class GameViewModel extends ChangeNotifier {
     }
   }
 
-  void onCardSwiped(int previousIndex, int targetIndex, SwiperActivity activity) {
+  void onCardSwiped(
+    int previousIndex,
+    int targetIndex,
+    SwiperActivity activity,
+  ) {
     _currentCardIndex = targetIndex;
 
     notifyListeners(); // Notifica a UI

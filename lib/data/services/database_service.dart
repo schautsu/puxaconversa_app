@@ -85,11 +85,16 @@ class DatabaseService {
     final List<Map<String, Object?>> questionMaps = await db.query(
       'question',
       where: 'category IN ($catParameters)',
-      whereArgs: categoryIds
+      whereArgs: categoryIds,
     );
 
     return [
-      for (final {'id': id as int, 'content': content as String, 'category': category as int} in questionMaps)
+      for (final {
+            'id': id as int,
+            'content': content as String,
+            'category': category as int,
+          }
+          in questionMaps)
         Question(id: id, content: content, category: category),
     ];
   }

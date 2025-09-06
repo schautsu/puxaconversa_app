@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:fading_edge_scrollview/fading_edge_scrollview.dart';
@@ -22,7 +23,10 @@ class CategorySelectionScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildScreen(BuildContext context, CategorySelectionViewModel viewModel) {
+  Widget _buildScreen(
+    BuildContext context,
+    CategorySelectionViewModel viewModel,
+  ) {
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -32,22 +36,23 @@ class CategorySelectionScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
 
             children: <Widget>[
-              Text(
+              AutoSizeText(
                 'Selecione as categorias de perguntas',
                 style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
+                maxLines: 2,
               ),
-              
+
               const SizedBox(height: 20), // Espaçamento
 
               _buildMainOptions(context, viewModel),
 
               const SizedBox(height: 10), // Espaçamento
-
               // Ocupa o espaço após as opções OU com um espaço vazio OU com a lista de categorias
               Expanded(
-                child: viewModel.selectionMode == SelectionMode.custom ?
-                  _buildCustomCategoryList(context, viewModel) : SizedBox(),
+                child: viewModel.selectionMode == SelectionMode.custom
+                    ? _buildCustomCategoryList(context, viewModel)
+                    : SizedBox(),
               ),
 
               const SizedBox(height: 40), // Espaçamento
@@ -61,10 +66,11 @@ class CategorySelectionScreen extends StatelessWidget {
                   padding: EdgeInsets.symmetric(vertical: 14),
                 ),
                 // Só começa o jogo quando o botão está ativo (categorias selecionadas)
-                onPressed: viewModel.isStartButtonDisabled ?
-                  null : () => _startGame(context, viewModel),
+                onPressed: viewModel.isStartButtonDisabled
+                    ? null
+                    : () => _startGame(context, viewModel),
 
-                child: Text(
+                child: AutoSizeText(
                   'Começar',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
@@ -78,19 +84,34 @@ class CategorySelectionScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildMainOptions(BuildContext context, CategorySelectionViewModel viewModel) {
+  Widget _buildMainOptions(
+    BuildContext context,
+    CategorySelectionViewModel viewModel,
+  ) {
+    final textSizeGroup = AutoSizeGroup();
+
     return Column(
       // Cria os selecionáveis com os valores do enum SelectionMode da ViewModel (all, custom)
       children: <Widget>[
         RadioListTile<SelectionMode>(
-          title: Text('Todas as categorias', style: TextStyle(fontSize: 18)),
+          title: AutoSizeText(
+            'Todas as categorias',
+            style: TextStyle(fontSize: 18),
+            maxLines: 1,
+            group: textSizeGroup,
+          ),
           groupValue: viewModel.selectionMode,
           value: SelectionMode.all,
           onChanged: (value) => viewModel.setSelectionMode(value!),
         ),
 
         RadioListTile<SelectionMode>(
-          title: Text('Personalizar...', style: TextStyle(fontSize: 18)),
+          title: AutoSizeText(
+            'Personalizar...',
+            style: TextStyle(fontSize: 18),
+            maxLines: 1,
+            group: textSizeGroup,
+          ),
           groupValue: viewModel.selectionMode,
           value: SelectionMode.custom,
           onChanged: (value) => viewModel.setSelectionMode(value!),
@@ -99,9 +120,12 @@ class CategorySelectionScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildCustomCategoryList(BuildContext context, CategorySelectionViewModel viewModel) {
+  Widget _buildCustomCategoryList(
+    BuildContext context,
+    CategorySelectionViewModel viewModel,
+  ) {
     final scrollController = ScrollController();
-    
+
     return Container(
       decoration: BoxDecoration(
         border: Border.all(color: Colors.grey.shade400),
@@ -122,7 +146,7 @@ class CategorySelectionScreen extends StatelessWidget {
               final category = viewModel.allCategories[index];
 
               return CheckboxListTile(
-                title: Text(category.name),
+                title: AutoSizeText(category.name, wrapWords: false),
                 value: viewModel.isCategorySelected(category.id),
                 activeColor: Theme.of(context).colorScheme.inverseSurface,
                 onChanged: (value) => viewModel.toggleCategory(category.id),
@@ -130,8 +154,7 @@ class CategorySelectionScreen extends StatelessWidget {
             },
           ),
         ),
-      )
-      
+      ),
     );
   }
 
@@ -140,7 +163,9 @@ class CategorySelectionScreen extends StatelessWidget {
 
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => GameScreen(categoryIds: categoryIds)),
+      MaterialPageRoute(
+        builder: (context) => GameScreen(categoryIds: categoryIds),
+      ),
     );
   }
 }

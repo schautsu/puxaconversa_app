@@ -1,6 +1,6 @@
 // Dados de categorias e perguntas do aplicativo para popular o banco de dados.
 const Map<String, List<String>> questionData = {
-    'Infância/Juventude': [
+    'Infância / Juventude': [
       'Você gostava de assistir desenhos animados quando era criança?',
       'Qual era o seu desenho preferido?',
       'Qual é a coisa que você queria quando era criança e nunca teve?',
@@ -190,7 +190,7 @@ const Map<String, List<String>> questionData = {
       'Qual qualidade do seu pai você herdou?',
       'É melhor ser pai ou filho(a)?',
     ],
-    'Religiosidade/espiritualidade': [
+    'Religiosidade / Espiritualidade': [
       'Você tem alguma crença religiosa?',
       'O que traz mais significado para a sua vida?',
       'O que é espiritualidade para você?',
