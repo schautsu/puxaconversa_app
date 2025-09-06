@@ -17,6 +17,7 @@ class PuxaConversaApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Puxa-Conversa',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Color(0xff90c54c)),
