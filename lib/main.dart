@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:sizer/sizer.dart';
 import 'package:puxaconversa_app/ui/home/home_screen.dart';
 
 void main() {
@@ -16,15 +17,19 @@ class PuxaConversaApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Puxa-Conversa',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Color(0xff90c54c)),
-        scaffoldBackgroundColor: Colors.grey[100],
-        fontFamily: 'Geomatrix',
-      ),
-      home: const HomeScreen(),
+    return Sizer(
+      builder: (context, orientation, screenType) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Puxa-Conversa',
+          theme: ThemeData(
+            colorScheme: ColorScheme.fromSeed(seedColor: Color(0xff90c54c)),
+            scaffoldBackgroundColor: Colors.grey[100],
+            fontFamily: 'Geomatrix',
+          ),
+          home: const HomeScreen(),
+        );
+      },
     );
   }
 }

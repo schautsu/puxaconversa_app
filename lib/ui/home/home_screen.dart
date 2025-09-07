@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:puxaconversa_app/ui/category_selection/category_selection_screen.dart';
 import 'package:puxaconversa_app/ui/instructions/instructions_screen.dart';
@@ -22,19 +23,23 @@ class HomeScreen extends StatelessWidget {
 
               AutoSizeText(
                 'PUXA-CONVERSA',
-                style: TextStyle(fontSize: 42, fontFamily: 'Tendang'),
+                style: TextStyle(fontSize: 26.sp, fontFamily: 'Tendang'),
                 textAlign: TextAlign.center,
                 maxLines: 1,
+                wrapWords: false,
               ),
 
               const Spacer(flex: 1), // Espaçamento
 
-              Image.asset('assets/images/app-logo.png', height: 150),
+              Image.asset('assets/images/app-logo.png', height: 20.h),
 
               AutoSizeText.rich(
+                textAlign: TextAlign.center,
+                wrapWords: false,
+
                 TextSpan(
                   style: TextStyle(
-                    fontSize: 26,
+                    fontSize: 20.sp,
                     fontWeight: FontWeight.bold,
                     fontFamily: 'Geomatrix',
                   ),
@@ -50,27 +55,26 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                textAlign: TextAlign.center,
-                textScaleFactor: 1.0,
               ),
 
               Align(
                 child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  padding: EdgeInsets.symmetric(horizontal: 10.0),
                   decoration: BoxDecoration(
                     color: Color(0xff5f684b),
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(8.0),
                   ),
 
                   child: AutoSizeText(
                     'QUALIDADE DE VIDA',
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 15.sp,
                       letterSpacing: 4.0,
                       color: Colors.white,
                       fontFamily: 'Gnuolane',
                     ),
-                    textScaleFactor: 1.0,
+                    maxLines: 1,
+                    wrapWords: false,
                   ),
                 ),
               ),
@@ -81,7 +85,7 @@ class HomeScreen extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Theme.of(context).colorScheme.primary,
                   foregroundColor: Theme.of(context).colorScheme.onPrimary,
-                  padding: EdgeInsets.symmetric(vertical: 14),
+                  padding: EdgeInsets.symmetric(vertical: 14.0),
                 ),
                 onPressed: () {
                   Navigator.push(
@@ -92,13 +96,16 @@ class HomeScreen extends StatelessWidget {
                   );
                 },
 
-                child: const AutoSizeText(
+                child: AutoSizeText(
                   'Jogar',
-                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                    fontSize: 18.sp,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
 
-              const SizedBox(height: 12), // Espaçamento fixo
+              const SizedBox(height: 15), // Espaçamento fixo
 
               TextButton(
                 style: TextButton.styleFrom(
@@ -113,9 +120,12 @@ class HomeScreen extends StatelessWidget {
                   );
                 },
 
-                child: const AutoSizeText(
+                child: AutoSizeText(
                   'Instruções',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:sizer/sizer.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:fading_edge_scrollview/fading_edge_scrollview.dart';
 import 'package:puxaconversa_app/ui/game/game_screen.dart';
@@ -38,8 +39,12 @@ class CategorySelectionScreen extends StatelessWidget {
             children: <Widget>[
               AutoSizeText(
                 'Selecione as categorias de perguntas',
-                style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  fontSize: 20.sp,
+                  fontWeight: FontWeight.bold,
+                ),
                 textAlign: TextAlign.center,
+                wrapWords: false,
                 maxLines: 2,
               ),
 
@@ -72,7 +77,10 @@ class CategorySelectionScreen extends StatelessWidget {
 
                 child: AutoSizeText(
                   'Começar',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                    fontSize: 18.sp,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
 
@@ -96,7 +104,7 @@ class CategorySelectionScreen extends StatelessWidget {
         RadioListTile<SelectionMode>(
           title: AutoSizeText(
             'Todas as categorias',
-            style: TextStyle(fontSize: 18),
+            style: TextStyle(fontSize: 17.sp),
             maxLines: 1,
             group: textSizeGroup,
           ),
@@ -108,7 +116,7 @@ class CategorySelectionScreen extends StatelessWidget {
         RadioListTile<SelectionMode>(
           title: AutoSizeText(
             'Personalizar...',
-            style: TextStyle(fontSize: 18),
+            style: TextStyle(fontSize: 17.sp),
             maxLines: 1,
             group: textSizeGroup,
           ),
@@ -129,13 +137,13 @@ class CategorySelectionScreen extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         border: Border.all(color: Colors.grey.shade400),
-        borderRadius: BorderRadius.circular(4),
+        borderRadius: BorderRadius.circular(4.0),
       ),
 
       // Cria uma lista para as categorias existentes
       child: Scrollbar(
         thickness: 2.0,
-        radius: Radius.circular(8),
+        radius: Radius.circular(8.0),
 
         child: FadingEdgeScrollView.fromScrollView(
           child: ListView.builder(
@@ -146,7 +154,11 @@ class CategorySelectionScreen extends StatelessWidget {
               final category = viewModel.allCategories[index];
 
               return CheckboxListTile(
-                title: AutoSizeText(category.name, wrapWords: false),
+                title: AutoSizeText(
+                  category.name,
+                  style: TextStyle(fontSize: 17.sp),
+                  wrapWords: false,
+                ),
                 value: viewModel.isCategorySelected(category.id),
                 activeColor: Theme.of(context).colorScheme.inverseSurface,
                 onChanged: (value) => viewModel.toggleCategory(category.id),

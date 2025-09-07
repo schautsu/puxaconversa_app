@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:fading_edge_scrollview/fading_edge_scrollview.dart';
 
@@ -14,10 +15,10 @@ class InstructionsScreen extends StatelessWidget {
 
           child: Column(
             children: <Widget>[
-              // Título da página
+
               AutoSizeText(
                 'Instruções',
-                style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
               ),
 
@@ -36,18 +37,18 @@ class InstructionsScreen extends StatelessWidget {
 
     return Scrollbar(
       thickness: 2.0,
-      radius: Radius.circular(8),
+      radius: Radius.circular(8.0),
 
       child: FadingEdgeScrollView.fromSingleChildScrollView(
         child: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(horizontal: 5),
+          padding: EdgeInsets.symmetric(horizontal: 5.0),
           controller: scrollController,
 
           child: Column(
             children: <Widget>[
               // Parágrafo introdutório
               AutoSizeText.rich(
-                style: TextStyle(fontSize: 18),
+                style: TextStyle(fontSize: 17.sp),
                 textAlign: TextAlign.justify,
 
                 TextSpan(
@@ -69,7 +70,7 @@ class InstructionsScreen extends StatelessWidget {
               AutoSizeText(
                 'Como jogar\n',
                 style: TextStyle(
-                  fontSize: 20,
+                  fontSize: 18.sp,
                   fontWeight: FontWeight.bold,
                   color: Theme.of(context).colorScheme.primary,
                 ),
@@ -77,7 +78,7 @@ class InstructionsScreen extends StatelessWidget {
               ),
 
               AutoSizeText.rich(
-                style: TextStyle(fontSize: 18),
+                style: TextStyle(fontSize: 17.sp),
                 textAlign: TextAlign.justify,
 
                 TextSpan(
@@ -85,7 +86,7 @@ class InstructionsScreen extends StatelessWidget {
                     TextSpan(
                       text: '1. ',
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 18.sp,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -99,7 +100,7 @@ class InstructionsScreen extends StatelessWidget {
                     TextSpan(
                       text: '2. ',
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 18.sp,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -116,7 +117,7 @@ class InstructionsScreen extends StatelessWidget {
                     TextSpan(
                       text: '3. ',
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 18.sp,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -128,7 +129,7 @@ class InstructionsScreen extends StatelessWidget {
                       text:
                           'Você também pode voltar para perguntas anteriores ou encerrar o jogo a qualquer momento.\n',
                       style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 16.sp,
                         fontStyle: FontStyle.italic,
                         color: Colors.grey.shade700,
                       ),

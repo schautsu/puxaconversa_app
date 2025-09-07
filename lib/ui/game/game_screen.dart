@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:sizer/sizer.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:appinio_swiper/appinio_swiper.dart';
 import 'package:puxaconversa_app/data/models/question_model.dart';
@@ -50,15 +51,19 @@ class GameScreen extends StatelessWidget {
       children: <Widget>[
         Flexible(
           child: TextButton.icon(
-            icon: Icon(Icons.undo),
+            icon: Icon(
+              Icons.undo,
+              applyTextScaling: true,
+            ),
             label: AutoSizeText(
               'Pergunta anterior',
               style: TextStyle(
-                fontSize: 14,
+                fontSize: 15.sp,
                 fontWeight: FontWeight.bold,
                 height: 1.2,
               ),
               textAlign: TextAlign.center,
+              wrapWords: false,
               maxLines: 2,
             ),
             style: TextButton.styleFrom(
@@ -71,16 +76,20 @@ class GameScreen extends StatelessWidget {
         ),
         Flexible(
           child: TextButton.icon(
-            icon: Icon(Icons.exit_to_app),
+            icon: Icon(
+              Icons.exit_to_app,
+              applyTextScaling: true,
+            ),
             label: AutoSizeText(
               'Encerrar jogo',
               style: TextStyle(
-                fontSize: 14,
+                fontSize: 15.sp,
                 fontWeight: FontWeight.bold,
                 height: 1.2,
                 color: Colors.red.shade800,
               ),
               textAlign: TextAlign.center,
+              wrapWords: false,
               maxLines: 2,
             ),
             style: TextButton.styleFrom(iconColor: Colors.red.shade800),
@@ -106,7 +115,7 @@ class GameScreen extends StatelessWidget {
         AppinioSwiper(
           controller: viewModel.swiperController,
           cardCount: viewModel.shuffledQuestions.length,
-          backgroundCardOffset: Offset(0, 43),
+          backgroundCardOffset: Offset(0, 45),
           cardBuilder: (context, index) {
             // Carta possui a pergunta e a ordem dela no baralho
             return QuestionCard(
@@ -124,7 +133,7 @@ class GameScreen extends StatelessWidget {
           AutoSizeText(
             'Fim das cartas!',
             style: TextStyle(
-              fontSize: 20,
+              fontSize: 18.sp,
               fontWeight: FontWeight.bold,
               color: Colors.grey,
             ),
@@ -175,7 +184,7 @@ class QuestionCard extends StatelessWidget {
               child: Center(
                 child: AutoSizeText(
                   question.content,
-                  style: TextStyle(fontSize: 20, height: 1.3),
+                  style: TextStyle(fontSize: 18.sp, height: 1.3),
                   textAlign: TextAlign.center,
                   overflow: TextOverflow.fade,
                 ),
@@ -184,7 +193,7 @@ class QuestionCard extends StatelessWidget {
 
             AutoSizeText(
               '$cardIndex/$totalCards',
-              style: TextStyle(fontSize: 18, color: Colors.grey),
+              style: TextStyle(fontSize: 16.sp, color: Colors.grey),
               textScaleFactor: 1.0,
             ),
           ],
