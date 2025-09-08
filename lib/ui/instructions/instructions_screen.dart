@@ -36,7 +36,7 @@ class InstructionsScreen extends StatelessWidget {
     final scrollController = ScrollController();
 
     return Scrollbar(
-      thickness: 2.0,
+      thickness: 4.0,
       radius: Radius.circular(8.0),
 
       child: FadingEdgeScrollView.fromSingleChildScrollView(
@@ -106,7 +106,7 @@ class InstructionsScreen extends StatelessWidget {
                     ),
                     TextSpan(
                       text:
-                          'Selecione as categorias de perguntas sobre as quais quer conversar e clique em ',
+                          'Selecione as categorias de perguntas sobre as quais deseja conversar e clique em ',
                     ),
                     TextSpan(
                       text: 'Começar',

@@ -142,8 +142,10 @@ class CategorySelectionScreen extends StatelessWidget {
 
       // Cria uma lista para as categorias existentes
       child: Scrollbar(
-        thickness: 2.0,
+        controller: scrollController,
+        thickness: 4.0,
         radius: Radius.circular(8.0),
+        thumbVisibility: true,
 
         child: FadingEdgeScrollView.fromScrollView(
           child: ListView.builder(

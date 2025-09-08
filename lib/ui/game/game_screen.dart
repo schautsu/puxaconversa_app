@@ -117,7 +117,7 @@ class GameScreen extends StatelessWidget {
           cardCount: viewModel.shuffledQuestions.length,
           backgroundCardOffset: Offset(0, 45),
           cardBuilder: (context, index) {
-            // Carta possui a pergunta e a ordem dela no baralho
+            // Cada carta possui a pergunta e a ordem dela no baralho
             return QuestionCard(
               question: viewModel.shuffledQuestions[index],
               cardIndex: index + 1,
@@ -187,6 +187,7 @@ class QuestionCard extends StatelessWidget {
                   style: TextStyle(fontSize: 18.sp, height: 1.3),
                   textAlign: TextAlign.center,
                   overflow: TextOverflow.fade,
+                  wrapWords: false,
                 ),
               ),
             ),
