@@ -27,17 +27,29 @@ class GameScreen extends StatelessWidget {
   }
 
   Widget _buildScreen(BuildContext context, GameViewModel viewModel) {
-    return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.all(24.0),
+    // Para o controle do botão de "voltar" do dispositivo móvel
+    return PopScope(
+      // se não tem mais cartas, permite sair da tela atual automaticamente
+      canPop: viewModel.isFinished,
+      onPopInvokedWithResult: (bool didPop, Object? result) {
+        // Se canPop for falso, exibe o diálogo
+        if (!didPop) {
+          _onExitGamePressed(context, viewModel);
+        }
+      },
 
-          child: Column(
-            // Duas porções principais da UI: botões de header e cartas
-            children: <Widget>[
-              _buildHeaderOptions(context, viewModel),
-              Expanded(child: _buildCardArea(context, viewModel)),
-            ],
+      child: Scaffold(
+        body: SafeArea(
+          child: Padding(
+            padding: EdgeInsets.all(24.0),
+
+            child: Column(
+              // Duas porções principais da UI: botões de header e cartas
+              children: <Widget>[
+                _buildHeaderOptions(context, viewModel),
+                Expanded(child: _buildCardArea(context, viewModel)),
+              ],
+            ),
           ),
         ),
       ),
@@ -51,10 +63,7 @@ class GameScreen extends StatelessWidget {
       children: <Widget>[
         Flexible(
           child: TextButton.icon(
-            icon: Icon(
-              Icons.undo,
-              applyTextScaling: true,
-            ),
+            icon: Icon(Icons.undo, applyTextScaling: true),
             label: AutoSizeText(
               'Pergunta anterior',
               style: TextStyle(
@@ -74,12 +83,10 @@ class GameScreen extends StatelessWidget {
                 : () => viewModel.unswipeCard(),
           ),
         ),
+
         Flexible(
           child: TextButton.icon(
-            icon: Icon(
-              Icons.exit_to_app,
-              applyTextScaling: true,
-            ),
+            icon: Icon(Icons.exit_to_app, applyTextScaling: true),
             label: AutoSizeText(
               'Encerrar jogo',
               style: TextStyle(
@@ -93,10 +100,68 @@ class GameScreen extends StatelessWidget {
               maxLines: 2,
             ),
             style: TextButton.styleFrom(iconColor: Colors.red.shade800),
-            onPressed: () => Navigator.of(context).pop(),
+            onPressed: () => _onExitGamePressed(context, viewModel),
           ),
         ),
       ],
+    );
+  }
+
+  void _onExitGamePressed(BuildContext context, GameViewModel viewModel) {
+    // Se não tem mais cartas, sai da tela imediatamente
+    if (viewModel.isFinished) {
+      Navigator.of(context).pop();
+      return;
+    }
+
+    // Caso contrário, exibe um diálogo de confirmação
+    showDialog<void>(
+      context: context,
+      builder: (BuildContext dialogContext) {
+        return AlertDialog(
+          elevation: 10.0,
+          shadowColor: Colors.black,
+          actionsAlignment: MainAxisAlignment.spaceAround,
+          icon: Icon(
+            Icons.exit_to_app,
+            color: Colors.red.shade800,
+            applyTextScaling: true,
+          ),
+          title: Text(
+            'Deseja encerrar o jogo atual?',
+            style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
+          ),
+
+          actions: <Widget>[
+            TextButton(
+              // Fecha o diálogo
+              onPressed: () {
+                Navigator.of(dialogContext).pop();
+              },
+
+              child: Text(
+                'Não',
+                style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
+              ),
+            ),
+
+            TextButton(
+              style: TextButton.styleFrom(foregroundColor: Colors.red.shade800),
+              // Fecha o diálogo e a tela de jogo
+              onPressed: () {
+                Navigator.of(dialogContext).pop();
+                Navigator.of(context).pop();
+              },
+
+              child: Text(
+                'Sim',
+                style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
+              ),
+            ),
+          ],
+        );
+      },
+      barrierDismissible: false,
     );
   }
 
