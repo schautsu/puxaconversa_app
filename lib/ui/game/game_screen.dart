@@ -29,10 +29,9 @@ class GameScreen extends StatelessWidget {
   Widget _buildScreen(BuildContext context, GameViewModel viewModel) {
     // Para o controle do botão de "voltar" do dispositivo móvel
     return PopScope(
-      // se não tem mais cartas, permite sair da tela atual automaticamente
-      canPop: viewModel.isFinished,
+      canPop: false,
       onPopInvokedWithResult: (bool didPop, Object? result) {
-        // Se canPop for falso, exibe o diálogo
+        // Como canPop é falso (não volta automaticamente, exibe tela de confirmação)
         if (!didPop) {
           _onExitGamePressed(context, viewModel);
         }
@@ -108,13 +107,7 @@ class GameScreen extends StatelessWidget {
   }
 
   void _onExitGamePressed(BuildContext context, GameViewModel viewModel) {
-    // Se não tem mais cartas, sai da tela imediatamente
-    if (viewModel.isFinished) {
-      Navigator.of(context).pop();
-      return;
-    }
-
-    // Caso contrário, exibe um diálogo de confirmação
+    // Exibe um diálogo de confirmação
     showDialog<void>(
       context: context,
       builder: (BuildContext dialogContext) {
