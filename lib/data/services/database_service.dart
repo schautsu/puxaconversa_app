@@ -27,17 +27,17 @@ class DatabaseService {
 
   Future<void> _createTables(Database db) async {
     await db.execute('''
-      CREATE TABLE category(
+      CREATE TABLE Category(
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         name TEXT NOT NULL UNIQUE
       )
     ''');
 
     await db.execute('''
-      CREATE TABLE question(
+      CREATE TABLE Question(
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         content TEXT NOT NULL,
-        category INTEGER NOT NULL REFERENCES category
+        idCategory INTEGER NOT NULL REFERENCES Category
       )
     ''');
   }
@@ -46,16 +46,16 @@ class DatabaseService {
     Batch multipleInserts = db.batch();
     // questionData do arquivo question_data.dart
     for (String categoryName in questionData.keys) {
-      int categoryId = await db.insert('category', {'name': categoryName});
+      int idCategory = await db.insert('Category', {'name': categoryName});
 
       // Asseguramos que o retorno não é nulo (já que a linguagem assume que pode ser).
       List<String> questions = questionData[categoryName]!;
       // Serão inseridas todas as perguntas no BD com Batch
       // É melhor em desempenho ao executar inserções em uma única transação
       for (String questionContent in questions) {
-        multipleInserts.insert('question', {
+        multipleInserts.insert('Question', {
           'content': questionContent,
-          'category': categoryId,
+          'idCategory': idCategory,
         });
       }
     }
@@ -66,7 +66,7 @@ class DatabaseService {
   Future<List<Category>> getCategories() async {
     final db = await database;
     final List<Map<String, Object?>> categoryMaps = await db.query(
-      'category',
+      'Category',
       orderBy: 'name',
     );
 
@@ -81,10 +81,10 @@ class DatabaseService {
     final db = await database;
     // Constrói uma string com o número de parâmetros a serem informados (?) na query
     String catParameters = List.filled(categoryIds.length, '?').join(',');
-    // SELECT * FROM question WHERE category IN (?,?,...), onde cada ? será substituído por um id
+    // SELECT * FROM question WHERE idCategory IN (?,?,...), onde cada ? será substituído por um id
     final List<Map<String, Object?>> questionMaps = await db.query(
-      'question',
-      where: 'category IN ($catParameters)',
+      'Question',
+      where: 'idCategory IN ($catParameters)',
       whereArgs: categoryIds,
     );
 
@@ -92,10 +92,10 @@ class DatabaseService {
       for (final {
             'id': id as int,
             'content': content as String,
-            'category': category as int,
+            'idCategory': idCategory as int,
           }
           in questionMaps)
-        Question(id: id, content: content, category: category),
+        Question(id: id, content: content, idCategory: idCategory),
     ];
   }
 }

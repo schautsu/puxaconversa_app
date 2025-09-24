@@ -9,7 +9,7 @@ class Category {
 class Question {
   final int id;
   final String content;
-  final int category;
+  final int idCategory;
 
-  Question({required this.id, required this.content, required this.category});
+  Question({required this.id, required this.content, required this.idCategory});
 }
