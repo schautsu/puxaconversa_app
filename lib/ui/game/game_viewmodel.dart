@@ -27,7 +27,7 @@ class GameViewModel extends ChangeNotifier {
 
   void unswipeCard() {
     swiperController.unswipe();
-
+    // Indice da carta para o contador
     if (_currentCardIndex > 0) {
       _currentCardIndex--;
     }

@@ -39,7 +39,7 @@ class HomeScreen extends StatelessWidget {
 
                 TextSpan(
                   style: TextStyle(
-                    fontSize: 20.sp,
+                    fontSize: 19.sp,
                     fontWeight: FontWeight.bold,
                     fontFamily: 'Geomatrix',
                   ),

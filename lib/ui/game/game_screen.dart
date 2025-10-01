@@ -160,7 +160,7 @@ class GameScreen extends StatelessWidget {
 
   Widget _buildCardArea(BuildContext context, GameViewModel viewModel) {
     // Caso a busca inicial das perguntas em loadQuestions ainda esteja sendo
-    //  feita, espera pela mudança de estado (notificada pela função)
+    // feita, espera pela mudança de estado (notificada pela função)
     if (viewModel.shuffledQuestions.isEmpty && !viewModel.isFinished) {
       return Center(child: CircularProgressIndicator());
     }
