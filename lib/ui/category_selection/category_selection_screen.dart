@@ -93,35 +93,37 @@ class CategorySelectionScreen extends StatelessWidget {
     BuildContext context,
     CategorySelectionViewModel viewModel,
   ) {
+    // Mesmo tamanho de texto para quem faz parte
     final textSizeGroup = AutoSizeGroup();
 
-    return Column(
-      // Cria os selecionáveis com os valores do enum SelectionMode da ViewModel (all, custom)
-      children: <Widget>[
-        RadioListTile<SelectionMode>(
-          title: AutoSizeText(
-            'Todas as categorias',
-            style: TextStyle(fontSize: 17.sp),
-            maxLines: 1,
-            group: textSizeGroup,
-          ),
-          groupValue: viewModel.selectionMode,
-          value: SelectionMode.all,
-          onChanged: (value) => viewModel.setSelectionMode(value!),
-        ),
+    return RadioGroup<SelectionMode>(
+      groupValue: viewModel.selectionMode,
+      onChanged: (value) => viewModel.setSelectionMode(value!),
 
-        RadioListTile<SelectionMode>(
-          title: AutoSizeText(
-            'Personalizar...',
-            style: TextStyle(fontSize: 17.sp),
-            maxLines: 1,
-            group: textSizeGroup,
+      child: Column(
+        // Cria os selecionáveis com os valores do enum SelectionMode da ViewModel (all, custom)
+        children: <Widget>[
+          RadioListTile<SelectionMode>(
+            title: AutoSizeText(
+              'Todas as categorias',
+              style: TextStyle(fontSize: 17.sp),
+              maxLines: 1,
+              group: textSizeGroup,
+            ),
+            value: SelectionMode.all,
           ),
-          groupValue: viewModel.selectionMode,
-          value: SelectionMode.custom,
-          onChanged: (value) => viewModel.setSelectionMode(value!),
-        ),
-      ],
+
+          RadioListTile<SelectionMode>(
+            title: AutoSizeText(
+              'Personalizar...',
+              style: TextStyle(fontSize: 17.sp),
+              maxLines: 1,
+              group: textSizeGroup,
+            ),
+            value: SelectionMode.custom,
+          ),
+        ],
+      ),
     );
   }
 
