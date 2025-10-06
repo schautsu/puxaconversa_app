@@ -55,7 +55,7 @@ class InstructionsScreen extends StatelessWidget {
                   children: <TextSpan>[
                     TextSpan(
                       text:
-                          'O Puxa-Conversa é um jogo diferente e sem regras, com perguntas abertas que visam estimular boas conversas em torno do tema: ',
+                          'O Puxa-Conversa é um jogo diferente e sem regras, com perguntas abertas que visam estimular conversas em torno do tema: ',
                     ),
                     TextSpan(
                       text: 'envelhecimento humano e qualidade de vida',

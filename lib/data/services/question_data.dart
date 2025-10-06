@@ -7,7 +7,7 @@ const Map<String, List<String>> questionData = {
       'Do que você tem saudade na sua infância?',
       'Qual era a sua comida favorita quando você era criança?',
       'Você assistia TV quando era criança? Que programa você gostava de assistir?',
-      'Quando você era criança você gostava de qual artista?',
+      'Quando você era criança, você gostava de qual artista?',
       'Onde você passou a sua infância?',
       'Que profissão você queria ter quando criança?',
       'Você acha que mudou o jeito como as crianças lidam com as pessoas mais velhas hoje?',
@@ -15,7 +15,7 @@ const Map<String, List<String>> questionData = {
     ],
     'Animais domésticos': [
       'Você teve um bichinho de estimação? Como ele era?',
-      'Você tem animais de estimação? Como se chama?',
+      'Você tem animais de estimação? Como se chamam?',
       'Você gosta mais de gato ou de cachorro?',
     ],
     'Realizações': [
@@ -34,7 +34,7 @@ const Map<String, List<String>> questionData = {
       'Qual foi a coisa mais engraçada que já aconteceu com você?',
       'O que você gosta de fazer no final de semana?',
       'Você tem um filme ou um programa de TV favorito?',
-      'Se você pudesse viajar no tempo, iria para que época?',
+      'Se você pudesse viajar no tempo, iria para qual época?',
       'Que tipo de programa você gosta de assistir na TV ou ouvir no rádio?',
     ],
     'Medo': [
@@ -121,8 +121,8 @@ const Map<String, List<String>> questionData = {
     'Trabalho': [
       'Em que você trabalha? Ou já trabalhou ao longo da vida?',
       'Com quantos anos você começou a trabalhar?',
-      'O que faz de você um grande profissional?',
-      'O que você pensa sobre as empresas levarem em consideração a idade das pessoas para contrata-las?',
+      'O que faz de você um(a) grande profissional?',
+      'O que você pensa sobre as empresas levarem em consideração a idade das pessoas para contratá-las?',
       'Você pretende trabalhar até que idade? Como definiu esse limite?',
     ],
     'Amizade': [
@@ -166,14 +166,14 @@ const Map<String, List<String>> questionData = {
       'Qual foi a coisa que você teve chance de aprender, mas acabou deixando para depois?',
     ],
     'Bem-estar': [
-      'Me diga três coisas que você faz e que te dão grande bem-estar?',
+      'Me diga três coisas que você faz e que te dão grande bem-estar.',
       'Como você se acalma quando fica com raiva?',
       'Sobre o que você poderia passar o dia inteiro falando?',
       'Qual é a música que tem tudo a ver com você? Por quê?',
       'Que tipo de música você ouve?',
       'Qual foi a última música que você ficou cantando durante dias?',
       'Você prefere o verão ou o inverno?',
-      'Para você qual o momento mais importante do dia?',
+      'Para você, qual o momento mais importante do dia?',
     ],
     'Maternidade': [
       'Se você tivesse poderes mágicos, o que mudaria na sua mãe?',
@@ -181,14 +181,14 @@ const Map<String, List<String>> questionData = {
       'Você conheceu a história da sua mãe?',
     ],
     'Avosidade': [
-      'Você se considera um bom (boa) avó/avô?',
+      'Você se considera um bom/boa avô/avó?',
       'O que seus netos trouxeram para a sua vida?',
-      'Você é melhor pai/mãe ou avó/avô?',
+      'Você é melhor pai/mãe ou avô/avó?',
     ],
     'Paternidade': [
       'Se você tivesse poderes mágicos, o que mudaria no seu pai?',
       'Qual qualidade do seu pai você herdou?',
-      'É melhor ser pai ou filho(a)?',
+      'É melhor ser pai/mãe ou filho(a)?',
     ],
     'Religiosidade / Espiritualidade': [
       'Você tem alguma crença religiosa?',
@@ -197,10 +197,10 @@ const Map<String, List<String>> questionData = {
       'Pelo que você é grato na sua vida?',
     ],
     'Morte': [
-      'Quando você se for, como gostaria de ser lembrado?',
+      'Quando você se for, como gostaria de ser lembrado(a)?',
       'O que você acredita que acontece após a morte?',
       'Se fosse possível saber a idade em que você vai morrer, você gostaria de saber?',
-      'Se tivesse que escolher apenas uma qualidade para ser lembrado pelas pessoas, qual seria?',
+      'Se tivesse que escolher apenas uma qualidade para ser lembrado(a) pelas pessoas, qual seria?',
       'Você reflete sobre a sua finitude (sobre morrer)?',
     ],
     'Atividade física': [
