@@ -15,11 +15,11 @@ class InstructionsScreen extends StatelessWidget {
 
           child: Column(
             children: <Widget>[
-
               AutoSizeText(
                 'Instruções',
                 style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
+                maxLines: 1,
               ),
 
               SizedBox(height: 20),
@@ -35,6 +35,19 @@ class InstructionsScreen extends StatelessWidget {
   Widget _buildMainContent(BuildContext context) {
     final scrollController = ScrollController();
 
+    final defaultStyle = TextStyle(fontSize: 17.sp);
+    final boldStyle = TextStyle(fontWeight: FontWeight.bold);
+    final sectionTitleStyle = TextStyle(
+      fontSize: 19.sp,
+      fontWeight: FontWeight.bold,
+      color: Theme.of(context).colorScheme.primary,
+    );
+    final commentStyle = TextStyle(
+      fontSize: 16.sp,
+      fontStyle: FontStyle.italic,
+      color: Colors.grey.shade700,
+    );
+
     return Scrollbar(
       thickness: 4.0,
       radius: Radius.circular(8.0),
@@ -48,7 +61,7 @@ class InstructionsScreen extends StatelessWidget {
             children: <Widget>[
               // Parágrafo introdutório
               AutoSizeText.rich(
-                style: TextStyle(fontSize: 17.sp),
+                style: defaultStyle,
                 textAlign: TextAlign.justify,
 
                 TextSpan(
@@ -59,7 +72,7 @@ class InstructionsScreen extends StatelessWidget {
                     ),
                     TextSpan(
                       text: 'envelhecimento humano e qualidade de vida',
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      style: boldStyle,
                     ),
                     TextSpan(text: '.\n'),
                   ],
@@ -69,58 +82,34 @@ class InstructionsScreen extends StatelessWidget {
               // Seção de orientações
               AutoSizeText(
                 'Como jogar\n',
-                style: TextStyle(
-                  fontSize: 18.sp,
-                  fontWeight: FontWeight.bold,
-                  color: Theme.of(context).colorScheme.primary,
-                ),
+                style: sectionTitleStyle,
                 textAlign: TextAlign.center,
               ),
-
               AutoSizeText.rich(
-                style: TextStyle(fontSize: 17.sp),
+                style: defaultStyle,
                 textAlign: TextAlign.justify,
 
                 TextSpan(
                   children: <TextSpan>[
-                    TextSpan(
-                      text: '1. ',
-                      style: TextStyle(
-                        fontSize: 18.sp,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                    TextSpan(text: '1. ', style: boldStyle),
                     TextSpan(text: 'No menu principal, clique em '),
-                    TextSpan(
-                      text: 'Jogar',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
+                    TextSpan(text: 'Jogar', style: boldStyle),
                     TextSpan(text: '.\n\n'),
 
-                    TextSpan(
-                      text: '2. ',
-                      style: TextStyle(
-                        fontSize: 18.sp,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                    TextSpan(text: '2. ', style: boldStyle),
                     TextSpan(
                       text:
                           'Selecione as categorias de perguntas sobre as quais deseja conversar e clique em ',
                     ),
+                    TextSpan(text: 'Começar', style: boldStyle),
+                    TextSpan(text: '.\n'),
                     TextSpan(
-                      text: 'Começar',
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      text:
+                          'Você pode selecionar "Todas as categorias" para um jogo com todo tipo de pergunta ou "Personalizar" para escolher temas específicos.\n\n',
+                      style: commentStyle,
                     ),
-                    TextSpan(text: '.\n\n'),
 
-                    TextSpan(
-                      text: '3. ',
-                      style: TextStyle(
-                        fontSize: 18.sp,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                    TextSpan(text: '3. ', style: boldStyle),
                     TextSpan(
                       text:
                           'Pense nas perguntas como uma pilha de cartas: ao arrastar uma carta, outra pergunta aparece!\n',
@@ -128,11 +117,7 @@ class InstructionsScreen extends StatelessWidget {
                     TextSpan(
                       text:
                           'Você também pode voltar para perguntas anteriores ou encerrar o jogo a qualquer momento.\n',
-                      style: TextStyle(
-                        fontSize: 16.sp,
-                        fontStyle: FontStyle.italic,
-                        color: Colors.grey.shade700,
-                      ),
+                      style: commentStyle,
                     ),
                   ],
                 ),

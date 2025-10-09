@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:puxaconversa_app/ui/credits/credits_screen.dart';
 import 'package:sizer/sizer.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:puxaconversa_app/ui/category_selection/category_selection_screen.dart';
@@ -19,7 +20,22 @@ class HomeScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
 
             children: <Widget>[
-              const Spacer(flex: 2), // Espaçamento
+              const Spacer(flex: 1), // Espaçamento
+
+              // Logos da UEMS e PPGES em linha
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  Flexible(
+                    child: Image.asset('assets/images/uems-logo.png', height: 5.h),
+                  ),
+                  Flexible(
+                    child: Image.asset('assets/images/ppges-logo.jpg', height: 5.h),
+                  ),
+                ],
+              ),
+
+              const Spacer(flex: 1), // Espaçamento
 
               AutoSizeText(
                 'PUXA-CONVERSA',
@@ -105,11 +121,14 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
 
-              const SizedBox(height: 15), // Espaçamento fixo
+              const SizedBox(height: 16), // Espaçamento fixo entre os botões
 
-              TextButton(
-                style: TextButton.styleFrom(
+              OutlinedButton(
+                style: OutlinedButton.styleFrom(
+                  backgroundColor: Theme.of(context).colorScheme.onPrimary,
                   foregroundColor: Theme.of(context).colorScheme.primary,
+                  side: BorderSide(color: Theme.of(context).colorScheme.primary),
+                  padding: EdgeInsets.symmetric(vertical: 14.0),
                 ),
                 onPressed: () {
                   Navigator.push(
@@ -129,7 +148,33 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
 
-              const Spacer(flex: 2), // Espaçamento
+              const Spacer(flex: 1), // Espaçamento
+
+              OutlinedButton(
+                style: OutlinedButton.styleFrom(
+                  backgroundColor: Theme.of(context).colorScheme.onPrimary,
+                  foregroundColor: Theme.of(context).colorScheme.primary,
+                  side: BorderSide(color: Theme.of(context).colorScheme.primary),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const CreditsScreen(),
+                    ),
+                  );
+                },
+
+                child: AutoSizeText(
+                  'Créditos',
+                  style: TextStyle(
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+
+              const Spacer(flex: 1), // Espaçamento
             ],
           ),
         ),
