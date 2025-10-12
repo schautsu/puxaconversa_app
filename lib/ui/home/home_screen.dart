@@ -24,13 +24,22 @@ class HomeScreen extends StatelessWidget {
 
               // Logos da UEMS e PPGES em linha
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+
                 children: <Widget>[
                   Flexible(
-                    child: Image.asset('assets/images/uems-logo.png', height: 5.h),
+                    child: Image.asset(
+                      'assets/images/uems-logo.png',
+                      height: 5.h,
+                      fit: BoxFit.contain,
+                    ),
                   ),
                   Flexible(
-                    child: Image.asset('assets/images/ppges-logo.jpg', height: 5.h),
+                    child: Image.asset(
+                      'assets/images/ppges-logo.jpg',
+                      height: 5.h,
+                      fit: BoxFit.contain,
+                    ),
                   ),
                 ],
               ),
@@ -125,7 +134,7 @@ class HomeScreen extends StatelessWidget {
 
               OutlinedButton(
                 style: OutlinedButton.styleFrom(
-                  backgroundColor: Theme.of(context).colorScheme.onPrimary,
+                  backgroundColor: Theme.of(context).scaffoldBackgroundColor,
                   foregroundColor: Theme.of(context).colorScheme.primary,
                   side: BorderSide(color: Theme.of(context).colorScheme.primary),
                   padding: EdgeInsets.symmetric(vertical: 14.0),
@@ -152,9 +161,10 @@ class HomeScreen extends StatelessWidget {
 
               OutlinedButton(
                 style: OutlinedButton.styleFrom(
-                  backgroundColor: Theme.of(context).colorScheme.onPrimary,
+                  backgroundColor: Theme.of(context).scaffoldBackgroundColor,
                   foregroundColor: Theme.of(context).colorScheme.primary,
                   side: BorderSide(color: Theme.of(context).colorScheme.primary),
+                  padding: EdgeInsets.symmetric(vertical: 7.0),
                 ),
                 onPressed: () {
                   Navigator.push(

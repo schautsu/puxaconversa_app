@@ -24,7 +24,7 @@ class PuxaConversaApp extends StatelessWidget {
           title: 'Puxa-Conversa',
           theme: ThemeData(
             colorScheme: ColorScheme.fromSeed(seedColor: Color(0xff90c54c)),
-            scaffoldBackgroundColor: Colors.white,
+            scaffoldBackgroundColor: Colors.grey[100],
             fontFamily: 'Geomatrix',
           ),
           home: const HomeScreen(),

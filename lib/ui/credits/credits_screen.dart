@@ -98,7 +98,7 @@ class CreditsScreen extends StatelessWidget {
                     ),
 
                     TextSpan(
-                      text: 'Orientadora/Revisão de conteúdo/Teste\n',
+                      text: 'Orientadora/Revisão de conteúdo/Testes\n',
                       style: boldStyle,
                     ),
                     TextSpan(
