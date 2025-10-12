@@ -57,7 +57,7 @@ const Map<String, List<String>> questionData = {
       'Você tem (ou teria) vergonha de assumir suas rugas ou seus cabelos brancos?',
       'Você é uma pessoa vaidosa, que gosta de se arrumar?',
       'Me conte uma coisa que você gostaria que as pessoas soubessem sobre você.',
-      'Você gosta de ser fotografado?',
+      'Você gosta de ser fotografado(a)?',
       'Você consegue indicar diferenças físicas em relação a pessoas mais velhas que você?',
       'Você gosta de conversar e fazer novas amizades?',
       'Você se acha uma pessoa bonita? O que você mais gosta em você?',
@@ -109,7 +109,7 @@ const Map<String, List<String>> questionData = {
       'O que você mais gostava (ou do que você tem mais saudade) na vida de solteiro(a)?',
       'O que você aprendeu com seus pais e ensinou para os seus filhos?',
       'As interações com jovens e crianças te deixam feliz? Em quais ocasiões?',
-      'As interações com jovens e crianças te deixam estressado? Em quais ocasiões?',
+      'As interações com jovens e crianças te deixam estressado(a)? Em quais ocasiões?',
       'O que você não tolera nos jovens de jeito nenhum?',
       'Você acha que os jovens de hoje são diferentes de quando você era jovem?',
     ],
@@ -181,7 +181,7 @@ const Map<String, List<String>> questionData = {
       'Você conheceu a história da sua mãe?',
     ],
     'Avosidade': [
-      'Você se considera um bom/boa avô/avó?',
+      'Você se considera um(a) bom/boa avô/avó?',
       'O que seus netos trouxeram para a sua vida?',
       'Você é melhor pai/mãe ou avô/avó?',
     ],
@@ -194,7 +194,7 @@ const Map<String, List<String>> questionData = {
       'Você tem alguma crença religiosa?',
       'O que traz mais significado para a sua vida?',
       'O que é espiritualidade para você?',
-      'Pelo que você é grato na sua vida?',
+      'Pelo que você é grato(a) na sua vida?',
     ],
     'Morte': [
       'Quando você se for, como gostaria de ser lembrado(a)?',
@@ -216,7 +216,7 @@ const Map<String, List<String>> questionData = {
       'Você lida bem com a tecnologia?',
     ],
     'Violência': [
-      'Você já sofreu algum tipo de violência? Quais?',
+      'Você já sofreu algum tipo de violência? Qual?',
       'Você já sofreu discriminação por ser idoso(a)?',
       'Você já presenciou alguma violência contra uma pessoa mais idosa? Como você se sentiu?',
       'O que você pensa sobre muitas mensagens em novelas ou filmes que retratam as pessoas idosas como rabugentas e/ou mal-humoradas?',
@@ -247,6 +247,6 @@ const Map<String, List<String>> questionData = {
       'O que você acha do termo "melhor idade"?',
       'O que você fez na juventude que você nota que prejudicou no seu envelhecimento?',
       'De que forma você cuida da sua saúde para ter autonomia?',
-      'Você se compara com outras pessoas com a sua mesma idade? Em quais ocasiões?',
+      'Você se compara com outras pessoas com a mesma idade? Em quais ocasiões?',
     ],
 };
