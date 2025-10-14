@@ -151,7 +151,7 @@ class CreditsScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               AutoSizeText(
-                'CC BY-NC-ND\n2025\n',
+                'CC BY-NC-ND 4.0\n2025\n',
                 style: defaultStyle,
                 textAlign: TextAlign.center,
               ),
