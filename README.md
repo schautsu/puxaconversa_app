@@ -1,4 +1,4 @@
 # puxaconversa_app
 
-Características do aplicativo (desenvolvimento):
-    - Segue o padrão de arquitetura Model-View-ViewModel (MVVM)
+Para gerar o APK:
+$ flutter build apk --obfuscate --split-debug-info=build/app/outputs/symbols
