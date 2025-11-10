@@ -1,7 +1,7 @@
 name: puxaconversa_app
 description: "Puxa-Conversa: um aplicativo de perguntas para iniciar conversas."
 publish_to: 'none' 
-version: 1.0.0+1 # VersionName+VersionCode
+version: 0.1.0+1 # Lê-se: Nome_da_Versão+Versão_do_Código
 
 environment:
   sdk: ^3.8.1

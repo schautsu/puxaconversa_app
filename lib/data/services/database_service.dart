@@ -4,8 +4,6 @@ import 'package:path/path.dart';
 import 'question_data.dart';
 
 class DatabaseService {
-  // Adoção de Singleton para garantir uma única instância da classe e
-  // possiblitar o acesso global a ela, controlando o acesso ao banco de dados.
   DatabaseService._();
   static final DatabaseService instance = DatabaseService._();
   // Instanciação do banco de dados e seu getter.
@@ -17,10 +15,24 @@ class DatabaseService {
 
   Future<Database> _initDatabase() async {
     String path = join(await getDatabasesPath(), 'puxaconversa.db');
-    return await openDatabase(path, version: 1, onCreate: _onCreate);
+    return await openDatabase(
+      path,
+      version: databaseVersion,
+      onCreate: _onCreate, // Primeira instalação
+      onUpgrade: _onUpgrade, // Atualizações do banco de dados
+    );
   }
 
   Future<void> _onCreate(Database db, int version) async {
+    await _createTables(db);
+    await _populateData(db);
+  }
+
+  Future<void> _onUpgrade(Database db, int oldVersion, int newVersion) async {
+    // Apaga as tabelas antigas. Como os dados são estáticos, não tem problema.
+    await db.execute('DROP TABLE IF EXISTS Question');
+    await db.execute('DROP TABLE IF EXISTS Category');
+    // Recria as tabelas atualizadas
     await _createTables(db);
     await _populateData(db);
   }

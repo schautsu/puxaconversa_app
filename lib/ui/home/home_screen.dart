@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:puxaconversa_app/ui/credits/credits_screen.dart';
 import 'package:sizer/sizer.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:puxaconversa_app/ui/category_selection/category_selection_screen.dart';
 import 'package:puxaconversa_app/ui/instructions/instructions_screen.dart';
+import 'package:puxaconversa_app/ui/about/about_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -170,13 +170,13 @@ class HomeScreen extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const CreditsScreen(),
+                      builder: (context) => const AboutScreen(),
                     ),
                   );
                 },
 
                 child: AutoSizeText(
-                  'Créditos',
+                  'Sobre',
                   style: TextStyle(
                     fontSize: 16.sp,
                     fontWeight: FontWeight.bold,

@@ -3,8 +3,8 @@ import 'package:sizer/sizer.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:fading_edge_scrollview/fading_edge_scrollview.dart';
 
-class CreditsScreen extends StatelessWidget {
-  const CreditsScreen({super.key});
+class AboutScreen extends StatelessWidget {
+  const AboutScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class CreditsScreen extends StatelessWidget {
           child: Column(
             children: <Widget>[
               AutoSizeText(
-                'Créditos',
+                'Sobre',
                 style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
                 maxLines: 1,
