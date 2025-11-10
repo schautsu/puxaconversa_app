@@ -34,7 +34,7 @@ const Map<String, List<String>> questionData = {
     'Qual foi o lugar mais bonito que você já visitou?',
     'Você acha que em qualquer idade é possível vivenciar novas experiências?',
   ],
-  'Diversãooooo': [
+  'Diversão': [
     'Qual foi a coisa mais engraçada que já aconteceu com você?',
     'O que você gosta de fazer no final de semana?',
     'Você tem um filme ou um programa de TV favorito?',
