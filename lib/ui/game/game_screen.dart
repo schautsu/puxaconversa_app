@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:puxaconversa_app/ui/home/home_screen.dart';
 import 'package:sizer/sizer.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:appinio_swiper/appinio_swiper.dart';
@@ -33,7 +34,7 @@ class GameScreen extends StatelessWidget {
       onPopInvokedWithResult: (bool didPop, Object? result) {
         // Como canPop é falso (não volta automaticamente, exibe tela de confirmação)
         if (!didPop) {
-          _onExitGamePressed(context, viewModel);
+          _onExitGamePressed(context);
         }
       },
 
@@ -87,7 +88,7 @@ class GameScreen extends StatelessWidget {
           child: TextButton.icon(
             icon: Icon(Icons.exit_to_app, applyTextScaling: true),
             label: AutoSizeText(
-              'Encerrar jogo',
+              'Encerrar partida',
               style: TextStyle(
                 fontSize: 15.sp,
                 fontWeight: FontWeight.bold,
@@ -99,62 +100,10 @@ class GameScreen extends StatelessWidget {
               maxLines: 2,
             ),
             style: TextButton.styleFrom(iconColor: Colors.red.shade800),
-            onPressed: () => _onExitGamePressed(context, viewModel),
+            onPressed: () => _onExitGamePressed(context),
           ),
         ),
       ],
-    );
-  }
-
-  void _onExitGamePressed(BuildContext context, GameViewModel viewModel) {
-    // Exibe um diálogo de confirmação
-    showDialog<void>(
-      context: context,
-      builder: (BuildContext dialogContext) {
-        return AlertDialog(
-          elevation: 10.0,
-          shadowColor: Colors.black,
-          actionsAlignment: MainAxisAlignment.spaceAround,
-          icon: Icon(
-            Icons.exit_to_app,
-            color: Colors.red.shade800,
-            applyTextScaling: true,
-          ),
-          title: Text(
-            'Deseja encerrar o jogo atual?',
-            style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
-          ),
-
-          actions: <Widget>[
-            TextButton(
-              // Fecha o diálogo
-              onPressed: () {
-                Navigator.of(dialogContext).pop();
-              },
-
-              child: Text(
-                'Não',
-                style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
-              ),
-            ),
-
-            TextButton(
-              style: TextButton.styleFrom(foregroundColor: Colors.red.shade800),
-              // Fecha o diálogo e a tela de jogo
-              onPressed: () {
-                Navigator.of(dialogContext).pop();
-                Navigator.of(context).pop();
-              },
-
-              child: Text(
-                'Sim',
-                style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
-              ),
-            ),
-          ],
-        );
-      },
-      barrierDismissible: false,
     );
   }
 
@@ -198,6 +147,61 @@ class GameScreen extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
       ],
+    );
+  }
+
+  void _onExitGamePressed(BuildContext context) {
+    // Exibe um diálogo de confirmação
+    showDialog<void>(
+      context: context,
+      builder: (BuildContext dialogContext) {
+        return AlertDialog(
+          elevation: 10.0,
+          shadowColor: Colors.black,
+          actionsAlignment: MainAxisAlignment.spaceAround,
+          icon: Icon(
+            Icons.exit_to_app,
+            color: Colors.red.shade800,
+            applyTextScaling: true,
+          ),
+          title: Text(
+            'Deseja encerrar a partida atual?',
+            style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
+          ),
+
+          actions: <Widget>[
+            TextButton(
+              // Fecha o diálogo
+              onPressed: () {
+                Navigator.of(dialogContext).pop();
+              },
+
+              child: Text(
+                'Não',
+                style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
+              ),
+            ),
+
+            TextButton(
+              style: TextButton.styleFrom(foregroundColor: Colors.red.shade800),
+              // Fecha o diálogo e a tela de jogo, voltando à tela inicial
+              onPressed: () {
+                Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (context) => const HomeScreen()),
+                  (Route<dynamic> route) => false,
+                );
+              },
+
+              child: Text(
+                'Sim',
+                style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
+              ),
+            ),
+          ],
+        );
+      },
+      barrierDismissible: true,
     );
   }
 }
