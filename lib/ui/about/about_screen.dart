@@ -94,7 +94,7 @@ class AboutScreen extends StatelessWidget {
                     ),
                     TextSpan(
                       text:
-                          'Técnica em Enfermagem Mestre Walkiria Nascimento Valadares de Campos. Hospital Universitário da Universidade Federal da Grande Dourados (HU-UFGD)\n\n',
+                          'Técnica em Enfermagem Mestre Walkiria Nascimento Valadares de Campos. Hospital Universitário da Universidade Federal da Grande Dourados (HU-UFGD/EBSERH)\n\n',
                     ),
 
                     TextSpan(
