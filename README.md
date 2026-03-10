@@ -8,4 +8,4 @@ O aplicativo móvel surgiu a partir do produto físico intitulado “Caixa Puxa-
 
 - **Disponível para**: Android 5.0+
 - **Desenvolvido com**: Flutter
-- [**Baixar projeto**](https://github.com/viniciusschautz/puxaconversa_app/archive/refs/heads/master.zip)
+- [**Baixar projeto**](https://github.com/schautsu/puxaconversa_app/archive/refs/tags/v0.1.0.zip)
